@@ -1,8 +1,8 @@
-[build]
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+  [build]
   command = "npm run build"
   publish = "dist"
-
-[[redirects]]
-  from = "/CRM_SYSTEM/*"
-  to = "/CRM_SYSTEM/index.html"
-  status = 200
