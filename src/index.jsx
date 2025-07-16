@@ -1,14 +1,11 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-// import { BrowserRouter } from 'react-router-dom';
 import { HashRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { configureStore } from '@reduxjs/toolkit';
 
 // assets
 import 'assets/scss/style.scss';
-
-// third party
-import { configureStore } from '@reduxjs/toolkit';
-import { Provider } from 'react-redux';
 
 // project import
 import App from 'layout/App';
@@ -19,17 +16,13 @@ const store = configureStore({ reducer });
 
 const root = createRoot(document.getElementById('root'));
 
-// ==============================|| MAIN - REACT DOM RENDER  ||==============
-
 root.render(
   <Provider store={store}>
-    <HashRouter basename={import.meta.env.VITE_APP_BASE_NAME}>
+    <HashRouter basename="/">
       <App />
     </HashRouter>
   </Provider>
 );
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
+// Service worker (optional)
 serviceWorker.unregister();
